@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#1b1430">
+<meta name="description" content="스와이프 한 번에 통나무를 베어라! 표식을 읽고 정확한 방향으로 베는 하이퍼캐주얼 액션 게임.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Log Slasher">
+<title>Log Slasher</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/svg+xml" href="icons/icon.svg">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="safe"></div>
+<canvas id="game" aria-label="Log Slasher game"></canvas>
+
+<!-- HUD buttons -->
+<button id="btnPause" class="icon-btn hidden" aria-label="Pause">
+  <svg viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+</button>
+
+<!-- Title -->
+<section id="scrTitle" class="screen">
+  <div class="logo">
+    <div class="logo-top">LOG</div>
+    <div class="logo-bottom">SLASHER</div>
+    <div class="logo-sub" data-i18n="subtitle"></div>
+  </div>
+  <div class="best-pill"><span data-i18n="best"></span> <b id="titleBest">0</b></div>
+  <div class="menu">
+    <button id="btnPlay" class="btn primary big" data-i18n="play"></button>
+    <button id="btnHow" class="btn" data-i18n="how"></button>
+    <button id="btnSettings" class="btn" data-i18n="settings"></button>
+  </div>
+  <div class="foot">v1.0.0</div>
+</section>
+
+<!-- How to play -->
+<section id="scrHow" class="screen modal hidden">
+  <div class="panel">
+    <h2 data-i18n="how"></h2>
+    <div class="how-list" id="howList"></div>
+    <p class="how-note" data-i18n="howNote"></p>
+    <button class="btn primary" data-close data-i18n="ok"></button>
+  </div>
+</section>
+
+<!-- Settings -->
+<section id="scrSettings" class="screen modal hidden">
+  <div class="panel">
+    <h2 data-i18n="settings"></h2>
+    <label class="row"><span data-i18n="sfx"></span><input type="checkbox" id="optSfx"><i class="tgl"></i></label>
+    <label class="row"><span data-i18n="music"></span><input type="checkbox" id="optMusic"><i class="tgl"></i></label>
+    <label class="row"><span data-i18n="vibration"></span><input type="checkbox" id="optVib"><i class="tgl"></i></label>
+    <label class="row"><span data-i18n="language"></span>
+      <select id="optLang"><option value="ko">한국어</option><option value="en">English</option></select>
+    </label>
+    <button id="btnReset" class="btn danger small" data-i18n="resetData"></button>
+    <button class="btn primary" data-close data-i18n="ok"></button>
+  </div>
+</section>
+
+<!-- Pause -->
+<section id="scrPause" class="screen modal hidden">
+  <div class="panel">
+    <h2 data-i18n="paused"></h2>
+    <button id="btnResume" class="btn primary big" data-i18n="resume"></button>
+    <button id="btnRestart" class="btn" data-i18n="restart"></button>
+    <button id="btnPauseSettings" class="btn" data-i18n="settings"></button>
+    <button id="btnQuit" class="btn" data-i18n="home"></button>
+  </div>
+</section>
+
+<!-- Game over -->
+<section id="scrOver" class="screen modal hidden">
+  <div class="panel over">
+    <div id="overReason" class="over-reason"></div>
+    <div id="newBest" class="new-best hidden" data-i18n="newBest"></div>
+    <div class="over-score" id="overScore">0</div>
+    <div class="over-rank" id="overRank"></div>
+    <div class="stats">
+      <div><small data-i18n="best"></small><b id="overBest">0</b></div>
+      <div><small data-i18n="logs"></small><b id="overLogs">0</b></div>
+      <div><small data-i18n="maxCombo"></small><b id="overCombo">0</b></div>
+    </div>
+    <button id="btnRetry" class="btn primary big" data-i18n="retry"></button>
+    <div class="btn-row">
+      <button id="btnHome" class="btn" data-i18n="home"></button>
+      <button id="btnShare" class="btn" data-i18n="share"></button>
+    </div>
+  </div>
+</section>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="game.js"></script>
+</body>
+</html>

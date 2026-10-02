@@ -1,0 +1,18 @@
+{
+  "name": "Log Slasher",
+  "short_name": "Log Slasher",
+  "description": "스와이프 한 번에 통나무를 베어라! 표식을 읽고 정확한 방향으로 베는 액션 게임.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#1b1430",
+  "theme_color": "#1b1430",
+  "lang": "ko",
+  "categories": ["games"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}
